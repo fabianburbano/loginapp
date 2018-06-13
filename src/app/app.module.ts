@@ -15,6 +15,7 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 
 //Servicios
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 //Environment
 import { environment } from '../environments/environment';
@@ -36,7 +37,7 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
