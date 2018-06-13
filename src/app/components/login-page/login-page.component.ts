@@ -32,4 +32,15 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
+  onClickGoogleLogin(){
+    this.as.loginGoogle()
+    .then((res) => {
+      this.router.navigate(['/privado']);
+    }).catch((err) => {
+      console.log(err.message);
+      this.flashMensaje.show(err.message, {cssClass: 'alert-danger' , timeout:4000});
+      this.router.navigate(['/login']);
+    });
+  }
+
 }
