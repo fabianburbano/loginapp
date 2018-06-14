@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,11 +19,15 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 
 //Servicios
 import { AuthService } from './services/auth.service';
+import { EstudianteService } from './services/estudiante.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 
 //Environment
 import { environment } from '../environments/environment';
+import { EstudiantesComponent } from './components/estudiantes/estudiantes.component';
+import { ListaEstudianteComponent } from './components/estudiantes/lista-estudiante/lista-estudiante.component';
+import { EstudianteComponent } from './components/estudiantes/estudiante/estudiante.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +37,10 @@ import { environment } from '../environments/environment';
     RegisterPageComponent,
     LoginPageComponent,
     PrivadoPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    EstudiantesComponent,
+    ListaEstudianteComponent,
+    EstudianteComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +48,13 @@ import { environment } from '../environments/environment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [AuthService, AuthGuard, FlashMessagesService],
+  providers: [AuthService, AuthGuard, FlashMessagesService,
+              EstudianteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

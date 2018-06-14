@@ -1,0 +1,57 @@
+<div class="card mt-4">
+  <div class="card-body">
+    <form #estudianteForm="ngForm" (ngSubmit)="onSubmit(estudianteForm)">
+      <input type="hidden" name="key" #key="ngModel" [(ngModel)]="estudianteService.selectedEstudiante.key">
+      <div class="form-group">
+        <input type="text" class="form-control" name="id"
+                #id="ngModel" [(ngModel)]="estudianteService.selectedEstudiante.id"
+                placeholder="Agrega la identificación del estudiante">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="nombres"
+                #nombres="ngModel" [(ngModel)]="estudianteService.selectedEstudiante.nombres"
+                placeholder="Agrega los nombres del estudiante">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="apellidos"
+                #apellidos="ngModel" [(ngModel)]="estudianteService.selectedEstudiante.apellidos"
+                placeholder="Agrega los apellidos del estudiante">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="horario"
+                #horario="ngModel" [(ngModel)]="estudianteService.selectedEstudiante.horario"
+                placeholder="Agrega el horario del estudiante">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="direccion"
+                #direccion="ngModel" [(ngModel)]="estudianteService.selectedEstudiante.direccion"
+                placeholder="Agrega la dirección del estudiante">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="acudiente"
+                #acudiente="ngModel" [(ngModel)]="estudianteService.selectedEstudiante.acudiente"
+                placeholder="Agrega al acudiente del estudiante">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="telefono"
+                #telefono="ngModel" [(ngModel)]="estudianteService.selectedEstudiante.telefono"
+                placeholder="Agrega el teléfono del estudiante">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="paquete"
+                #paquete="ngModel" [(ngModel)]="estudianteService.selectedEstudiante.paquete"
+                placeholder="Agrega el paquete que va a tomar el estudiante">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+          <i class="fa fa-plus-circle"></i>
+          Agregar un estudiante
+        </button>
+        <button class="btn btn-danger" type="reset" (click)="resetForm(estudianteForm)">
+          <i class="fa fa-recycle"></i>
+          Limpiar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
